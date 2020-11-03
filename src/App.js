@@ -2,6 +2,7 @@ import './App.css';
 import Header from './components/Header'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
+import Map from './components/Map'
 import InputPage from './components/InputPage'
 import { Switch, Route } from "react-router-dom"
 
@@ -15,7 +16,10 @@ function App() {
         <Switch>
 
           <Route exact path="/home">
+            <div className="homepage">
             <Home />
+            <Map/>
+            </div>
           </Route >
 
           <Route exact path="/page">
