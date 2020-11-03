@@ -5,8 +5,14 @@ import Home from './components/Home'
 import Map from './components/Map'
 import InputPage from './components/InputPage'
 import { Switch, Route } from "react-router-dom"
+import * as am4core from "@amcharts/amcharts4/core";
+import * as am4charts from "@amcharts/amcharts4/charts";
+import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+
+// am4core.useTheme(am4themes_animated);
 
 function App() {
+
   return (
     <>
       <Header />
