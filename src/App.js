@@ -39,7 +39,7 @@ function App() {
         <Navbar />
         <Switch>
 
-          <Route exact path="/home">
+          <Route exact path="/">
             <div className="homepage">
               <Home geoMapData={geoMapData}/>
               <Map geoMapData={geoMapData}/>
