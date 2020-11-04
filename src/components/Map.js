@@ -5,19 +5,20 @@ import { countriesArr } from '../countries/countriesArr'
 
 
 const Map = () => {
-    const [geoMapData, setGeoMapData] = useState(['Country', 'Popularity'])
-
+    const [geoMapData, setGeoMapData] = useState([])
+    console.log('geoMapData')
+    console.log(geoMapData)
     useEffect(() => {
         async function getAllData() {
             const data = await getData();
             console.log(data.data)
-            const arr = []
+            const arr = [['Country', 'Users']]
             data.data.map(cityInfo => {
-                if (countriesArr.includes(cityInfo.country)) {
+                if (countriesArr.includes(cityInfo.country) && cityInfo.users.length < 6) {
                     if (typeof cityInfo.users === 'number') {
                         arr.push([cityInfo.country, cityInfo.users])
                     } else if (!isNaN(cityInfo.users) && typeof cityInfo.users !== 'object') {
-                            arr.push([cityInfo.country, parseInt(cityInfo.users)])
+                        arr.push([cityInfo.country, parseInt(cityInfo.users)])
                     }
                 }
             })
@@ -34,16 +35,7 @@ const Map = () => {
             width={'500px'}
             height={'300px'}
             chartType="GeoChart"
-            data={[
-                ['Country', 'Popularity'],
-                ['Germany', 200],
-                ['United States', 300],
-                ['Brazil', 400],
-                ['Canada', 500],
-                ['France', 600],
-                ['RU', 700],
-                ['Australia', 100],
-            ]}
+            data={geoMapData}
             // Note: you will need to get a mapsApiKey for your project.
             // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
             mapsApiKey="YOUR_KEY_HERE"
