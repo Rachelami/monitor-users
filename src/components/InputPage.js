@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getData, postData } from "../lib/api";
 // import { Form, Col, Button } from 'react-bootstrap';
+import {countriesArr} from '../countries/countriesArr'
 
 const InputPage = () => {
     const [country, setCountry] = useState(false)
@@ -35,8 +36,7 @@ const InputPage = () => {
                 Country:
                 <select defaultValue={'DEFAULT'} onChange={(event) => changeSelect(event)}>
                 <option value="DEFAULT" disabled hidden>Choose here</option>
-                    <option >qqww</option>
-                    <option >wwqq</option>
+                {countriesArr.map(country => <option key={country}>{country}</option>)}
                 </select>
 
                 <input type="number" min="1" onChange={(event) => changeNumber(event)} />
