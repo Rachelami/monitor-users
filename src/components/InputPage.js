@@ -1,22 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import { getData, postData } from "../lib/api";
+import { getData, postData, deleteData } from "../lib/api";
 // import { Form, Col, Button } from 'react-bootstrap';
-import {countriesArr} from '../countries/countriesArr'
+import { countriesArr } from '../countries/countriesArr'
 
-const InputPage = () => {
-    const [country, setCountry] = useState(false)
-    const [numberOfUsers, setNumberOfUsers] = useState(false)
+const InputPage = ({ allApiCountriesData }) => {
+    const [country, setCountry] = useState('')
+    const [numberOfUsers, setNumberOfUsers] = useState(0)
 
-    useEffect(() => {
-        async function getAllData() {
-            const data = await getData();
-        }
-        getAllData();
-    }, []);
 
+
+    // useEffect(() => {
+    //     async function getAllData() {
+    //         const data = await getData();
+    //     }
+    //     getAllData();
+    // }, []);
+
+
+    // const submitChanges = async () => {
+    //     const obj = { country: country, users: numberOfUsers }
+    //     let newArray = []
+    //     for (let i = 0; i < allApiCountriesData.length - 1; i++) {
+    //         if (allApiCountriesData[i].country !== country) {
+    //             newArray.push(allApiCountriesData[i])
+    //         }
+    //     }
+    //     newArray.push(obj)
+    //     deleteData()
+    //     postData(newArray)
+    // }
 
     const submitChanges = () => {
         const obj = { country: country, users: numberOfUsers }
+        // postData({ country: 'test1', users: 123 })
         postData(obj)
     }
 
@@ -30,12 +46,12 @@ const InputPage = () => {
 
     return (
         <div>
-        
+
             <form onSubmit={() => submitChanges()}>
                 Country:
                 <select defaultValue={'DEFAULT'} onChange={(event) => changeSelect(event)}>
-                <option value="DEFAULT" disabled hidden>Choose here</option>
-                {countriesArr.map(country => <option key={country}>{country}</option>)}
+                    <option value="DEFAULT" disabled hidden>Choose here</option>
+                    {countriesArr.map(country => <option key={country}>{country}</option>)}
                 </select>
 
                 <input type="number" min="1" max="999999" onChange={(event) => changeNumber(event)} />

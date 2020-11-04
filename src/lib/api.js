@@ -7,14 +7,21 @@ export function getData() {
     return axios.get(`${baseUrl}`);
 }
 
+export function deleteData() {
+    axios.delete(`${baseUrl}`)
+        .then(response => {
+            console.log(response);
+        })
+}
 
+
+//remove the response
 export async function postData(obj) {
-    console.log(obj);
     await axios
         .post(`${baseUrl}`, obj)
         .then((response) => {
             console.log(response);
-          }, (error) => {
+        }, (error) => {
             console.log(error);
         });
 }

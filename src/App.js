@@ -11,11 +11,14 @@ import { countriesArr } from './countries/countriesArr'
 
 function App() {
   const [geoMapData, setGeoMapData] = useState([])
+  const [allApiCountriesData, setAllApiCountriesData] = useState([])
 
   useEffect(() => {
     async function getAllData() {
       const data = await getData();
       const arr = [['Country', 'Users']]
+      setAllApiCountriesData(data.data)
+      console.log(data.data)
       data.data.map(cityInfo => {
         if (countriesArr.includes(cityInfo.country) && cityInfo.users.length <= 6) {
           if (typeof cityInfo.users === 'number') {
@@ -47,7 +50,7 @@ function App() {
           </Route >
 
           <Route exact path="/page">
-            <InputPage />
+            <InputPage allApiCountriesData={allApiCountriesData}/>
           </Route >
 
         </Switch>
