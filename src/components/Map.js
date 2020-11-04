@@ -4,31 +4,7 @@ import { getData } from "../lib/api";
 import { countriesArr } from '../countries/countriesArr'
 
 
-const Map = () => {
-    const [geoMapData, setGeoMapData] = useState([])
-    console.log('geoMapData')
-    console.log(geoMapData)
-    useEffect(() => {
-        async function getAllData() {
-            const data = await getData();
-            console.log(data.data)
-            const arr = [['Country', 'Users']]
-            data.data.map(cityInfo => {
-                if (countriesArr.includes(cityInfo.country) && cityInfo.users.length <= 6) {
-                    if (typeof cityInfo.users === 'number') {
-                        arr.push([cityInfo.country, cityInfo.users])
-                    } else if (!isNaN(cityInfo.users) && typeof cityInfo.users !== 'object') {
-                        arr.push([cityInfo.country, parseInt(cityInfo.users)])
-                    }
-                }
-            })
-            console.log(arr)
-            setGeoMapData(arr)
-        }
-        getAllData();
-    }, []);
-
-
+const Map = ({geoMapData}) => {
 
     return (
         <Chart
