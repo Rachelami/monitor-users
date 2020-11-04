@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { getData } from "../lib/api";
 
 const Home = ({ geoMapData }) => {
-    const [users, setUsers] = useState(0)
+    const [totalUsers, setTotalUsers] = useState(0)
 
     useEffect(() => {
         let sumUsers = 0
-        geoMapData.map(user => {
-            if (typeof user[1] === 'number') {
-                sumUsers = sumUsers + user[1]
+        geoMapData.map(users => {
+            if (typeof users[1] === 'number') {
+                sumUsers = sumUsers + users[1]
             }
         })
-        setUsers(sumUsers)
+        setTotalUsers(sumUsers)
     }, []);
 
     return (
         <div>
-            Home
-            <div>Total Users: {users}</div>
-            <div></div>
+            <div>Total Users: {totalUsers}</div>
         </div>
     );
 };

@@ -5,7 +5,7 @@ import {countriesArr} from '../countries/countriesArr'
 
 const InputPage = () => {
     const [country, setCountry] = useState(false)
-    const [number, setNumber] = useState(false)
+    const [numberOfUsers, setNumberOfUsers] = useState(false)
 
     useEffect(() => {
         async function getAllData() {
@@ -16,7 +16,7 @@ const InputPage = () => {
 
 
     const submitChanges = () => {
-        const obj = { country: country, users: number }
+        const obj = { country: country, users: numberOfUsers }
         postData(obj)
     }
 
@@ -25,12 +25,11 @@ const InputPage = () => {
     }
 
     const changeNumber = (event) => {
-        setNumber(parseInt(event.target.value))
+        setNumberOfUsers(parseInt(event.target.value))
     }
 
     return (
         <div>
-            inputPage
         
             <form onSubmit={() => submitChanges()}>
                 Country:
