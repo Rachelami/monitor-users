@@ -14,7 +14,7 @@ const Map = () => {
             console.log(data.data)
             const arr = [['Country', 'Users']]
             data.data.map(cityInfo => {
-                if (countriesArr.includes(cityInfo.country) && cityInfo.users.length < 6) {
+                if (countriesArr.includes(cityInfo.country) && cityInfo.users.length <= 6) {
                     if (typeof cityInfo.users === 'number') {
                         arr.push([cityInfo.country, cityInfo.users])
                     } else if (!isNaN(cityInfo.users) && typeof cityInfo.users !== 'object') {

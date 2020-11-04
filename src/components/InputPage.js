@@ -39,7 +39,7 @@ const InputPage = () => {
                 {countriesArr.map(country => <option key={country}>{country}</option>)}
                 </select>
 
-                <input type="number" min="1" onChange={(event) => changeNumber(event)} />
+                <input type="number" min="1" max="999999" onChange={(event) => changeNumber(event)} />
                 <button type="Submit" value="Submit" >submit</button>
             </form>
 
