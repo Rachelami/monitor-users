@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getData } from "../lib/api";
 
 const Home = () => {
-    const [users, setUsers] = useState(false)
+    const [users, setUsers] = useState(0)
 
     useEffect(() => {
         async function getAllData() {

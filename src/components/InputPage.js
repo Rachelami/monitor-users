@@ -9,9 +9,6 @@ const InputPage = () => {
     useEffect(() => {
         async function getAllData() {
             const data = await getData();
-            // const response = await data
-            // console.log(response.data)
-            // console.log(data.data)
         }
         getAllData();
     }, []);
