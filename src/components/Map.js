@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Chart } from "react-google-charts";
 import { getData } from "../lib/api";
+import { countriesArr } from '../countries/countriesArr'
 
 
 const Map = () => {
@@ -11,11 +12,16 @@ const Map = () => {
             const data = await getData();
             console.log(data.data)
             const arr = []
-            data.data.map(cityInfo =>{
-                // console.log(cityInfo.country)
-                // console.log(cityInfo.users)
-                arr.push([cityInfo.country, cityInfo.users])
+            data.data.map(cityInfo => {
+                if (countriesArr.includes(cityInfo.country)) {
+                    if (typeof cityInfo.users === 'number') {
+                        arr.push([cityInfo.country, cityInfo.users])
+                    } else if (!isNaN(cityInfo.users) && typeof cityInfo.users !== 'object') {
+                            arr.push([cityInfo.country, parseInt(cityInfo.users)])
+                    }
+                }
             })
+            console.log(arr)
             setGeoMapData(arr)
         }
         getAllData();
