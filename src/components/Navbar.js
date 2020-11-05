@@ -12,7 +12,7 @@ const Navbar = () => {
     return (
         <div className="navbar-container">
 
-            <img src={process.env.PUBLIC_URL + `${isHide ? '/images/cancel.png' : '/images/hamburger.png'}`} className={isHide ? "cancel-logo nav-hamburger-container": 'hamburger-logo nav-hamburger-container'} onClick={() => handleHamburgerClick()} />
+            <img src={process.env.PUBLIC_URL + `${isHide ? '/images/cancel.png' : '/images/hamburger.png'}`} className={isHide ? "cancel-logo nav-hamburger-container" : 'hamburger-logo nav-hamburger-container'} onClick={() => handleHamburgerClick()} />
 
             <div className={isHide ? 'show-navbar navbar-expand' : 'navbar-expand'}>
                 <div className="nav-link-box">

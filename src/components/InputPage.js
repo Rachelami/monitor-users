@@ -1,27 +1,14 @@
 import React, { useState } from 'react';
-import { postData, updateData } from '../lib/api';
-// import { Form, Col, Button } from 'react-bootstrap';
+import { postData } from '../lib/api';
 import { countriesArr } from '../countries/countriesArr'
 
-const InputPage = ({ allApiCountriesData }) => {
+const InputPage = () => {
     const [country, setCountry] = useState('')
     const [numberOfUsers, setNumberOfUsers] = useState(0)
 
-    // const submitChanges = async () => {
-    //     const obj = { country: country, users: numberOfUsers }
-    //     let newArray = []
-    //     for (let i = 0; i < allApiCountriesData.length - 1; i++) {
-    //         if (allApiCountriesData[i].country !== country) {
-    //             newArray.push(allApiCountriesData[i])
-    //         }
-    //     }
-    //     newArray.push(obj)
-    //     updateData(newArray)
-    // }
 
     const submitChanges = () => {
         const obj = { country: country, users: numberOfUsers }
-        // postData({ country: 'test1', users: 123 })
         postData(obj)
     }
 

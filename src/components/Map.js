@@ -10,7 +10,6 @@ const Map = ({ geoMapData }) => {
                 height={'auto'}
                 chartType="GeoChart"
                 data={geoMapData}
-                // mapsApiKey="YOUR_KEY_HERE"
                 rootProps={{ 'data-testid': '1' }}
             />
         </div>
