@@ -46,7 +46,7 @@ const InputPage = ({ allApiCountriesData }) => {
                 <div>Number Of Users:</div>
                 <input type="number" min="0" placeholder="0" onChange={(event) => changeNumber(event)} className="input-users" />
             </div>
-            <button type="Submit" value="Submit" className='submit-button'>submit</button>
+            <button type="Submit" value="Submit" className='submit-button'>Submit</button>
         </form>
     );
 };
