@@ -36,24 +36,24 @@ function App() {
 
   return (
     <>
-      <Header />
-
       <div className="app-container">
         <Navbar />
-        <Switch>
 
-          <Route exact path="/">
-            <div className="homepage">
-              <Home geoMapData={geoMapData}/>
-              <Map geoMapData={geoMapData}/>
-            </div>
-          </Route >
+        <div className="homepage">
+          <Header />
+          <Switch>
 
-          <Route exact path="/page">
-            <InputPage allApiCountriesData={allApiCountriesData}/>
-          </Route >
+            <Route exact path="/">
+              <Home geoMapData={geoMapData} />
+              <Map geoMapData={geoMapData} />
+            </Route >
 
-        </Switch>
+            <Route exact path="/page">
+              <InputPage allApiCountriesData={allApiCountriesData} />
+            </Route >
+
+          </Switch>
+        </div>
       </div>
     </>
   );

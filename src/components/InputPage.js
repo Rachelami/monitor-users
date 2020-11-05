@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { getData, postData, updateData } from '../lib/api';
+import React, { useState } from 'react';
+import { postData, updateData } from '../lib/api';
 // import { Form, Col, Button } from 'react-bootstrap';
 import { countriesArr } from '../countries/countriesArr'
 
@@ -34,20 +34,20 @@ const InputPage = ({ allApiCountriesData }) => {
     }
 
     return (
-        <div>
-
-            <form onSubmit={() => submitChanges()}>
-                Country:
-                <select defaultValue={'DEFAULT'} onChange={(event) => changeSelect(event)}>
+        <form onSubmit={() => submitChanges()} className="form-container">
+            <div className="form-section-wrapper">
+                <div>Country:</div>
+                <select defaultValue={'DEFAULT'} onChange={(event) => changeSelect(event)} className="form-select">
                     <option value="DEFAULT" disabled hidden>Choose here</option>
                     {countriesArr.map(country => <option key={country}>{country}</option>)}
                 </select>
-
-                <input type="number" min="1" onChange={(event) => changeNumber(event)} />
-                <button type="Submit" value="Submit" >submit</button>
-            </form>
-
-        </div >
+            </div>
+            <div className="form-section-wrapper">
+                <div>Number Of Users:</div>
+                <input type="number" min="0" placeholder="0" onChange={(event) => changeNumber(event)} className="input-users" />
+            </div>
+            <button type="Submit" value="Submit" className='submit-button'>submit</button>
+        </form>
     );
 };
 

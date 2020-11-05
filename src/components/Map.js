@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Chart } from "react-google-charts";
-import { getData } from "../lib/api";
-import { countriesArr } from '../countries/countriesArr'
-
 
 const Map = ({ geoMapData }) => {
 
     return (
-        <div>
+        <div className="map-border">
             <Chart
-                width={'100%'}
+                width={'80vw'}
                 height={'auto'}
                 chartType="GeoChart"
                 data={geoMapData}
-                // Note: you will need to get a mapsApiKey for your project.
-                // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
                 // mapsApiKey="YOUR_KEY_HERE"
                 rootProps={{ 'data-testid': '1' }}
             />
