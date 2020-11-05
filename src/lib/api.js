@@ -13,6 +13,12 @@ export function deleteData() {
             console.log(response);
         })
 }
+export function updateData(objToUpdate) {
+    axios.put(`${baseUrl}`, objToUpdate)
+        .then(response => {
+            console.log(response);
+        })
+}
 
 
 //remove the response

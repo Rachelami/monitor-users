@@ -1,21 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { getData, postData, deleteData } from "../lib/api";
+import { getData, postData, updateData } from '../lib/api';
 // import { Form, Col, Button } from 'react-bootstrap';
 import { countriesArr } from '../countries/countriesArr'
 
 const InputPage = ({ allApiCountriesData }) => {
     const [country, setCountry] = useState('')
     const [numberOfUsers, setNumberOfUsers] = useState(0)
-
-
-
-    // useEffect(() => {
-    //     async function getAllData() {
-    //         const data = await getData();
-    //     }
-    //     getAllData();
-    // }, []);
-
 
     // const submitChanges = async () => {
     //     const obj = { country: country, users: numberOfUsers }
@@ -26,8 +16,7 @@ const InputPage = ({ allApiCountriesData }) => {
     //         }
     //     }
     //     newArray.push(obj)
-    //     deleteData()
-    //     postData(newArray)
+    //     updateData(newArray)
     // }
 
     const submitChanges = () => {
@@ -54,10 +43,9 @@ const InputPage = ({ allApiCountriesData }) => {
                     {countriesArr.map(country => <option key={country}>{country}</option>)}
                 </select>
 
-                <input type="number" min="1" max="999999" onChange={(event) => changeNumber(event)} />
+                <input type="number" min="1" onChange={(event) => changeNumber(event)} />
                 <button type="Submit" value="Submit" >submit</button>
             </form>
-
 
         </div >
     );

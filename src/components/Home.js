@@ -11,11 +11,11 @@ const Home = ({ geoMapData }) => {
             }
         })
         setTotalUsers(sumUsers)
-    }, []);
+    }, [geoMapData]);
 
     return (
         <div>
-            <div>Total Users: {totalUsers}</div>
+            {totalUsers !== 0 && <div>Total Users: {totalUsers}</div>}
         </div>
     );
 };

@@ -20,7 +20,7 @@ function App() {
       setAllApiCountriesData(data.data)
       console.log(data.data)
       data.data.map(cityInfo => {
-        if (countriesArr.includes(cityInfo.country) && cityInfo.users.length <= 6) {
+        if (countriesArr.includes(cityInfo.country)) {
           if (typeof cityInfo.users === 'number') {
             arr.push([cityInfo.country, cityInfo.users])
           } else if (!isNaN(cityInfo.users) && typeof cityInfo.users !== 'object') {
