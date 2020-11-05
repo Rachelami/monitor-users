@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { postData } from '../lib/api';
 import { countriesArr } from '../countries/countriesArr'
 
 const InputPage = () => {
     const [country, setCountry] = useState('')
     const [numberOfUsers, setNumberOfUsers] = useState(0)
+    const [isDisabled, setIsDisabled] = useState(true)
 
+    useEffect(() => {
+        if (country !== '' && numberOfUsers !== 0) {
+            setIsDisabled(false)
+        }
+    }, [country, numberOfUsers]);
 
     const submitForm = () => {
         const obj = { country: country, users: numberOfUsers }
@@ -33,7 +39,7 @@ const InputPage = () => {
                 <div>Number Of Users:</div>
                 <input type="number" min="0" placeholder="0" onChange={(event) => changeNumberOfUsers(event)} className="input-users" />
             </div>
-            <button type="Submit" value="Submit" className='submit-button'>Submit</button>
+            <button type="Submit" value="Submit" className='submit-button' disabled={isDisabled}>Submit</button>
         </form>
     );
 };
