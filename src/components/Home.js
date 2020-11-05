@@ -14,7 +14,7 @@ const Home = ({ geoMapData }) => {
     }, [geoMapData]);
 
     return (
-        <div className="total-users-container">
+        <div className='total-users-container'>
             {totalUsers !== 0 && <div>Total Users: {totalUsers}</div>}
         </div>
     );

@@ -27,19 +27,19 @@ const InputPage = () => {
     }
 
     return (
-        <form onSubmit={() => submitForm()} className="form-container">
-            <div className="form-section-wrapper">
+        <form onSubmit={() => submitForm()} className='form-container'>
+            <div className='form-section-wrapper'>
                 <div>Country:</div>
-                <select defaultValue={'DEFAULT'} onChange={(event) => changeSelect(event)} className="form-select">
-                    <option value="DEFAULT" disabled hidden>Choose here</option>
+                <select defaultValue={'DEFAULT'} onChange={(event) => changeSelect(event)} className='form-select'>
+                    <option value='DEFAULT' disabled hidden>Choose here</option>
                     {countriesArr.map(country => <option key={country}>{country}</option>)}
                 </select>
             </div>
-            <div className="form-section-wrapper">
+            <div className='form-section-wrapper'>
                 <div>Number Of Users:</div>
-                <input type="number" min="0" placeholder="0" onChange={(event) => changeNumberOfUsers(event)} className="input-users" />
+                <input type='number' min='0' placeholder='0' onChange={(event) => changeNumberOfUsers(event)} className='input-users' />
             </div>
-            <button type="Submit" value="Submit" className='submit-button' disabled={isDisabled}>Submit</button>
+            <button type='Submit' value='Submit' className='submit-button' disabled={isDisabled}>Submit</button>
         </form>
     );
 };

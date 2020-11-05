@@ -5,8 +5,8 @@ import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Map from './components/Map'
 import InputPage from './components/InputPage'
-import { Switch, Route } from "react-router-dom"
-import { getData } from "./lib/api";
+import { Switch, Route } from 'react-router-dom'
+import { getData } from './lib/api';
 import { countriesArr } from './countries/countriesArr'
 
 function App() {
@@ -31,18 +31,18 @@ function App() {
 
   return (
     <>
-      <div className="app-container">
+      <div className='app-container'>
         <Navbar />
-        <div className="homepage">
+        <div className='homepage'>
           <Header />
           <Switch>
 
-            <Route exact path="/">
+            <Route exact path='/'>
               <Home geoMapData={geoMapData} />
               <Map geoMapData={geoMapData} />
             </Route >
 
-            <Route exact path="/page">
+            <Route exact path='/page'>
               <InputPage />
             </Route >
 

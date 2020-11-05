@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Chart } from "react-google-charts";
+import { Chart } from 'react-google-charts';
 
 const Map = ({ geoMapData }) => {
     const [updateMap, setUpdateMap] = useState(0)
@@ -9,11 +9,11 @@ const Map = ({ geoMapData }) => {
     }, [updateMap]);
 
     return (
-        <div className="map-border">
+        <div className='map-border'>
             <Chart
                 width={'70vw'}
                 height={'auto'}
-                chartType="GeoChart"
+                chartType='GeoChart'
                 data={geoMapData}
                 rootProps={{ 'data-testid': '1' }}
             />
