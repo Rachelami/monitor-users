@@ -2,19 +2,16 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    const [isHide, setIsHide] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
 
     const handleHamburgerClick = () => {
-        setIsHide(!isHide)
+        setIsOpen(!isOpen)
     }
-
 
     return (
         <div className="navbar-container">
-
-            <img src={process.env.PUBLIC_URL + `${isHide ? '/images/cancel.png' : '/images/hamburger.png'}`} className={isHide ? "cancel-logo nav-hamburger-container" : 'hamburger-logo nav-hamburger-container'} onClick={() => handleHamburgerClick()} />
-
-            <div className={isHide ? 'show-navbar navbar-expand' : 'navbar-expand'}>
+            <img src={process.env.PUBLIC_URL + `${isOpen ? '/images/cancel.png' : '/images/hamburger.png'}`} className={isOpen ? "cancel-logo nav-hamburger-container" : 'hamburger-logo nav-hamburger-container'} onClick={() => handleHamburgerClick()} />
+            <div className={isOpen ? 'show-navbar navbar' : 'navbar'}>
                 <div className="nav-link-box">
                     <img src={process.env.PUBLIC_URL + '/images/location.svg'} className="nav-logos" />
                     <Link to={'/'} className="link"> Map </Link>

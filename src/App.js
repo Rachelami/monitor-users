@@ -11,18 +11,14 @@ import { countriesArr } from './countries/countriesArr'
 
 function App() {
   const [geoMapData, setGeoMapData] = useState([])
-  const [allApiCountriesData, setAllApiCountriesData] = useState([])
 
   useEffect(() => {
     async function getAllData() {
       const data = await getData();
       const arr = [['Country', 'Users']]
-      setAllApiCountriesData(data.data)
       data.data.map(cityInfo => {
         if (countriesArr.includes(cityInfo.country)) {
-          if (typeof cityInfo.users === 'number') {
-            arr.push([cityInfo.country, cityInfo.users])
-          } else if (!isNaN(cityInfo.users) && typeof cityInfo.users !== 'object') {
+          if (!isNaN(cityInfo.users) && typeof cityInfo.users !== 'object') {
             arr.push([cityInfo.country, parseInt(cityInfo.users)])
           }
         }
@@ -37,7 +33,6 @@ function App() {
     <>
       <div className="app-container">
         <Navbar />
-
         <div className="homepage">
           <Header />
           <Switch>
@@ -48,7 +43,7 @@ function App() {
             </Route >
 
             <Route exact path="/page">
-              <InputPage allApiCountriesData={allApiCountriesData} />
+              <InputPage />
             </Route >
 
           </Switch>
