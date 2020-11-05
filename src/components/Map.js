@@ -11,7 +11,7 @@ const Map = ({ geoMapData }) => {
     return (
         <div className="map-border">
             <Chart
-                width={'80vw'}
+                width={'70vw'}
                 height={'auto'}
                 chartType="GeoChart"
                 data={geoMapData}

@@ -23,23 +23,6 @@
   align-items: center;
 }
 
-.nav-hamburger-container {
-  background-color: white;
-  position: absolute;
-  left: 10px;
-  z-index: 2;
-  margin-top: 10px;
-}
-
-.hamburger-logo {
-  border-radius: 5px;
-  display: none;
-}
-
-.cancel-logo {
-  border-radius: 50%;
-}
-
 /* navbar */
 .navbar {
   display: flex;
@@ -58,7 +41,8 @@
 }
 
 .nav-logos {
-  width: 15px;
+  width: 18px;
+  height: 18px;
   padding-right: 5px
 }
 
@@ -71,10 +55,22 @@
   display: none
 }
 
-.show-navbar {
-  display: flex !important;
+.nav-hamburger-container {
+  background-color: white;
   position: absolute;
-  z-index: 1;
+  left: 10px;
+  z-index: 2;
+  margin-top: 10px;
+}
+
+.hamburger-logo {
+  border-radius: 5px;
+  display: none;
+}
+
+.cancel-logo {
+  border-radius: 50%;
+  display: none;
 }
 
 /* home */
@@ -131,5 +127,13 @@
   }
   .hamburger-logo {
     display: block;
+  }
+  .cancel-logo {
+    display: block;
+  }
+  .show-navbar {
+    display: flex !important;
+    position: absolute;
+    z-index: 1;
   }
 }

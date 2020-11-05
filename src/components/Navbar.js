@@ -17,7 +17,7 @@ const Navbar = () => {
                     <Link to={'/'} className="link"> Map </Link>
                 </div>
                 <div className="nav-link-box">
-                    <img src={process.env.PUBLIC_URL + '/images/search.svg'} className="nav-logos" />
+                    <img src={process.env.PUBLIC_URL + '/images/avatar.png'} className="nav-logos" />
                     <Link to={'/page'} className="link"> Add Users </Link>
                 </div>
             </div>
