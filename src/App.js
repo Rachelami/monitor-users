@@ -18,7 +18,6 @@ function App() {
       const data = await getData();
       const arr = [['Country', 'Users']]
       setAllApiCountriesData(data.data)
-      console.log(data.data)
       data.data.map(cityInfo => {
         if (countriesArr.includes(cityInfo.country)) {
           if (typeof cityInfo.users === 'number') {
